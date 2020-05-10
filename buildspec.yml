@@ -7,3 +7,9 @@ phases:
     commands:
       - pip install -r requirements.txt
       - pytest
+  build:
+    commands:
+      - zip hello_user.zip hello_user.py
+  deploy:
+    commands:
+      - aws lambda list-versions-by-function --function-name hello_user
