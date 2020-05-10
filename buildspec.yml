@@ -12,4 +12,5 @@ phases:
       - zip hello_user.zip hello_user.py
   post_build:
     commands:
-      - aws lambda list-versions-by-function --function-name hello_user
+      - aws lambda update-function-code --function-name=hello_user --zip-file=fileb://hello_user.zip
+      - aws lambda publish-version --function-name hello_user
